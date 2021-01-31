@@ -91,14 +91,43 @@ public class Main {
         final int RANGE = 10;
 
         int[] testArray;
+//        int[] testArray1 = { 2, 2, 2, 1, 2, 2, 10, 1 };
+//        int[] testArray1 = { 1, 1, 1, 2, 1 };
+        int sum1 = 0;
+        int sum2 = 0;
+        int resultIndex = -1;
 
         testArray = FillArrayRandomly(SIZE, RANGE);
 
         System.out.println("Вывод содержимого testArray");
         PutArrayOnConsole(testArray);
 
+        for (int i = 0; i < (SIZE - 1); i++)  {
+            sum1 += testArray[i];
+            sum2 = SumOfSubArray(testArray, (i + 1), (SIZE - 1));
 
 
+
+            if (sum1 == sum2)   {
+                resultIndex = i;
+            }
+        }
+
+        if (resultIndex > 0) {
+            System.out.println("Балансный индекс = " + resultIndex);
+        } else {
+            System.out.println("Балансный индекс не найден.");
+        }
+
+    }
+
+    static int SumOfSubArray(int[] array, int index1, int index2)   {
+        int resultSum = 0;
+        for (int i = index1; i <= index2; i++) {
+            resultSum += array[i];
+        }
+
+        return resultSum;
     }
 
     static int[] FillArrayRandomly (int sizeArray, int randomRange) {
@@ -115,10 +144,11 @@ public class Main {
 
     static void PutArrayOnConsole (int[] array)  {
 
+        System.out.print("{ ");
         for(int g : array)    {
-            System.out.print("g = ");
-            System.out.println(g);
-
+            System.out.print(g);
+            System.out.print(", ");
         }
+        System.out.printf("\b\b }\n");
     }
 }
