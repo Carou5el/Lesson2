@@ -66,7 +66,7 @@ public class Main {
         int maxArrayValue = 0;
         int minArrayValue = RND_RANGE;
 
-        FillArrayRandomly(array5thTask, RND_RANGE);
+        array5thTask =  FillArrayRandomly(SIZE_ARRAY, RND_RANGE);
 
         for (int d : array5thTask)  {
             if (d >= maxArrayValue) {
@@ -87,10 +87,13 @@ public class Main {
             граница показана символами ||, эти символы в массив не входят.
         */
         // Создаём пустой одномерный целочисленный массив.
+        final int SIZE = 10;
         final int RANGE = 10;
-        int[] testArray = new int[RANGE];
 
-        FillArrayRandomly(testArray, RANGE);
+        int[] testArray;
+
+        testArray = FillArrayRandomly(SIZE, RANGE);
+
         System.out.println("Вывод содержимого testArray");
         PutArrayOnConsole(testArray);
 
@@ -98,14 +101,16 @@ public class Main {
 
     }
 
-    static void FillArrayRandomly (int[] array, int randomRange) {
+    static int[] FillArrayRandomly (int sizeArray, int randomRange) {
 
+        int[] resultArray = new int[sizeArray];
         Random rndGenerator = new Random();
-        int sizeArray = array.length;
 
         for (int i = 0; i < sizeArray; i++) {
-            array[i] = rndGenerator.nextInt(randomRange);
+            resultArray[i] = rndGenerator.nextInt(randomRange);
         }
+
+        return resultArray;
     }
 
     static void PutArrayOnConsole (int[] array)  {
