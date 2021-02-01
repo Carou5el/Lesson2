@@ -44,20 +44,26 @@ public class Main {
         */
         final int SIZE_SQUARE_ARRAY = 8;                    // Размер квадратного массива.
 
-        int[][] arrayFor4ndTask = new int[SIZE_SQUARE_ARRAY][SIZE_SQUARE_ARRAY];
+        int[][] arrayFor4thTask = new int[SIZE_SQUARE_ARRAY][SIZE_SQUARE_ARRAY];
 
         System.out.println();
         System.out.println("Задание 4.");
 
         for(int i = 0; i < SIZE_SQUARE_ARRAY; i++)    {
-            for (int j = 0; j < SIZE_SQUARE_ARRAY; j++)   {
-                if (i == j) {
-                    arrayFor4ndTask[i][j] = 1;              // Заполнение диагонали.
-                }
-                System.out.print(arrayFor4ndTask[i][j]);
-                System.out.print(' ');
+
+            int j1 = i;                                         // уравнение прямой y = x
+            int j2 = -i + (SIZE_SQUARE_ARRAY - 1);              // уравнение прямой y = -x + b
+
+            arrayFor4thTask[i][j1] = 1;                         // заполнение диагоналей "1",
+            arrayFor4thTask[i][j2] = 1;                         // при инициализации массив заполнен "0"
+        }
+
+        // Красивый вывод в консоль.
+        for (int i = 0; i < SIZE_SQUARE_ARRAY; i++) {
+            for (int j = 0; j < SIZE_SQUARE_ARRAY; j++) {
+                System.out.printf("%d ", arrayFor4thTask[i][j]);
             }
-            System.out.println();
+            System.out.printf("\n");
         }
 //========================================================================
         /*  Задание 5.
