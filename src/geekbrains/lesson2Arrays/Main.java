@@ -121,16 +121,57 @@ public class Main {
             Примеры: [ 1, 2, 3 ] при n = 1 (на один вправо) -> [ 3, 1, 2 ]; [ 3, 5, 6, 1] при n = -2 (на два влево) -> [ 6, 1, 3, 5 ].
             При каком n в какую сторону сдвиг можете выбирать сами.
         */
-
+        int[] testArray3 = { 2, 2, 2, 1, 2, 2, 10, 1 };
+        System.out.println("Задание 7.");
+        System.out.println("Сдвиг массива.");
+        PutArrayOnConsole(testArray3, 0, testArray3.length);
+        ShiftNArray(testArray3, -3);
+        PutArrayOnConsole(testArray3, 0, testArray3.length);
 
     }
 
     // Метод для Задания 7.
-    static void MoveArray (int[] array, int n)  {
+    static int[] ShiftNArray (int[] array, int n)  {
 
-        
+        int tempVar = 0;
 
+        if (n > 0)  {
+            // Цикл сдвига в положительном направлении.
+            for(int j = 0; j < n; j++)  {
+                for(int i = array.length - 1; i >= 0; i--)   {
 
+                    if (i == array.length - 1)  {
+                        tempVar = array[i];
+                        continue;
+                    }
+
+                    array[i+1] = array[i];
+
+                    if (i == 0) {
+                        array[i] = tempVar;
+                    }
+                }
+            }
+        } else  {
+            // Цикл сдвига в отрицательном направлении.
+            for (int j = n; j < 0; j++) {
+                for(int i = 0; i < array.length; i++)   {
+
+                    if (i == 0)  {
+                        tempVar = array[i];
+                        continue;
+                    }
+
+                    array[i-1] = array[i];
+
+                    if (i == array.length - 1) {
+                        array[i] = tempVar;
+                    }
+                }
+            }
+        }
+
+        return array;
     }
 
 
