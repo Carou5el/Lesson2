@@ -41,7 +41,7 @@ public class Main {
         }
         System.out.println("Содержимое массива после инверсии.");
         PutArrayOnConsole(arrayFor1stTask, 0, arrayFor1stTask.length);
-
+        System.out.println();
 
 //========================================================================
         /*  Задание 2.
@@ -53,6 +53,12 @@ public class Main {
         for (int i = 0; i <= 7; i++)  {
             arrayFor2ndTask[i] = i * 3;             // Заполнение массива с помощью умножения на 3.
         }
+
+        System.out.println("Задание 2.");
+        System.out.println("Содержимое массива.");
+        PutArrayOnConsole(arrayFor2ndTask, 0, arrayFor2ndTask.length);
+        System.out.println();
+
 //========================================================================
         /*  Задание 3.
             Задать массив [ 1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1 ]
@@ -61,21 +67,28 @@ public class Main {
         int[] arrayFor3rdTask = { 1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1 };
         int rangeForCycle = arrayFor3rdTask.length;
 
+        System.out.println("Задание 3.");
+        System.out.println("Содержимое массива.");
+        PutArrayOnConsole(arrayFor3rdTask, 0, arrayFor3rdTask.length);
+
         for (int i = 0; i < rangeForCycle; i++) {
             if (arrayFor3rdTask[i] < 6)   {
                 arrayFor3rdTask[i] *= 2;
             }
         }
+
+        System.out.println("Содержимое массива после *2 чисел < 6.");
+        PutArrayOnConsole(arrayFor3rdTask, 0, arrayFor3rdTask.length);
+        System.out.println();
 //========================================================================
         /*  Задание 4.
             Создать квадратный двумерный целочисленный массив (количество строк и столбцов одинаковое),
             и с помощью цикла(-ов) заполнить его диагональные элементы единицами;
         */
-        final int SIZE_SQUARE_ARRAY = 8;                    // Размер квадратного массива.
+        final int SIZE_SQUARE_ARRAY = 10;                    // Размер квадратного массива.
 
         int[][] arrayFor4thTask = new int[SIZE_SQUARE_ARRAY][SIZE_SQUARE_ARRAY];
 
-        System.out.println();
         System.out.println("Задание 4.");
 
         for(int i = 0; i < SIZE_SQUARE_ARRAY; i++)    {
@@ -94,6 +107,7 @@ public class Main {
             }
             System.out.printf("\n");
         }
+        System.out.printf("\n");
 //========================================================================
         /*  Задание 5.
             Задать одномерный массив и найти в нем минимальный и максимальный элементы (без помощи интернета)
@@ -101,7 +115,7 @@ public class Main {
         final int SIZE_ARRAY = 8;                                       // Размер массива
         final int RND_RANGE = 100;                                      // Диапазон случ. чисел для заполнения
 
-        int[] array5thTask = new int[SIZE_ARRAY];
+        int[] array5thTask;
         int maxArrayValue = 0;
         int minArrayValue = RND_RANGE;
 
@@ -115,10 +129,13 @@ public class Main {
                 minArrayValue = d;
             }
         }
-        System.out.println();
+
         System.out.println("Задание 5.");
-        System.out.println("maxValue in array = " + maxArrayValue);
-        System.out.println("minValue in array = " + minArrayValue);
+        System.out.println("Содержимое массива.");
+        PutArrayOnConsole(array5thTask, 0, array5thTask.length);
+        System.out.println("maxValue = " + maxArrayValue);
+        System.out.println("minValue = " + minArrayValue);
+        System.out.println();
 //========================================================================
         /*  Задание 6.
             Написать метод, в который передается не пустой одномерный целочисленный массив,
@@ -131,17 +148,18 @@ public class Main {
         final int SIZE = 8;
         final int RANGE = 10;
 
-//        int[] testArray;
+//        int[] testArray;                                      // массив генерируется случайно
         int[] testArray = { 2, 2, 2, 1, 2, 2, 10, 1 };          // установи SIZE = 8, закомментируй FillArrayRandomly()
 //        int[] testArray = { 1, 1, 1, 2, 1 };                  // установи SIZE = 5, закомментируй FillArrayRandomly()
 
 //        testArray = FillArrayRandomly(SIZE, RANGE);
 
-        System.out.println();
         System.out.println("Задание 6.");
+        System.out.println("Содержимое массива.");
+        PutArrayOnConsole(testArray, 0, testArray.length);
         System.out.println("Проверка массива на наличине баланса.");
         System.out.println(CheckArrayForBalance(testArray));
-
+        System.out.println();
 //========================================================================
         /*  Задание 7.
             Написать метод, которому на вход подается одномерный массив и число n (может быть положительным, или отрицательным),
@@ -151,22 +169,28 @@ public class Main {
             При каком n в какую сторону сдвиг можете выбирать сами.
         */
         int[] testArray3 = { 2, 2, 2, 1, 2, 2, 10, 1 };
+        int shiftValue = -4;
+
         System.out.println("Задание 7.");
-        System.out.println("Сдвиг массива.");
-        PutArrayOnConsole(testArray3, 0, testArray3.length);
-        ShiftNArray(testArray3, -3);
+        System.out.println("Сдвиг массива: " + shiftValue);
         PutArrayOnConsole(testArray3, 0, testArray3.length);
 
+        ShiftNArray(testArray3, shiftValue);
+
+        PutArrayOnConsole(testArray3, 0, testArray3.length);
+        System.out.println();
     }
 
     // Метод для Задания 7.
-    static int[] ShiftNArray (int[] array, int n)  {
+    // Сдвиг массива.
+    static int[] ShiftNArray (int[] array, int shift)  {
 
         int tempVar = 0;
 
-        if (n > 0)  {
+        if (shift > 0)  {
             // Цикл сдвига в положительном направлении.
-            for(int j = 0; j < n; j++)  {
+            for(int j = 0; j < shift; j++)  {
+                // Цикл исполнения сдвига на 1 шаг.
                 for(int i = array.length - 1; i >= 0; i--)   {
 
                     if (i == array.length - 1)  {
@@ -183,7 +207,7 @@ public class Main {
             }
         } else  {
             // Цикл сдвига в отрицательном направлении.
-            for (int j = n; j < 0; j++) {
+            for (int j = shift; j < 0; j++) {
                 for(int i = 0; i < array.length; i++)   {
 
                     if (i == 0)  {
