@@ -15,6 +15,35 @@ public class Main {
 
     public static void main(String[] args) {
 //========================================================================
+        /*  Задание 1.
+            Задать целочисленный массив, состоящий из элементов 0 и 1.
+            Например: [ 1, 1, 0, 0, 1, 0, 1, 1, 0, 0 ].
+            С помощью цикла и условия заменить 0 на 1, 1 на 0;
+         */
+
+        // Генерация массива, заполненного случайным образом.
+        int[] arrayFor1stTask = FillArrayRandomly(10, 2);
+
+        System.out.println("Задание 1.");
+        System.out.println("Содержимое массива.");
+        PutArrayOnConsole(arrayFor1stTask, 0, arrayFor1stTask.length);
+
+        // Инверсия элементов массива.
+        for (int i = 0; i < arrayFor1stTask.length; i++)    {
+            switch (arrayFor1stTask[i]) {
+                case 1:
+                    arrayFor1stTask[i] = 0;
+                    break;
+                case 0:
+                    arrayFor1stTask[i] = 1;
+                    break;
+            }
+        }
+        System.out.println("Содержимое массива после инверсии.");
+        PutArrayOnConsole(arrayFor1stTask, 0, arrayFor1stTask.length);
+
+
+//========================================================================
         /*  Задание 2.
             Задать пустой целочисленный массив размером 8.
             С помощью цикла заполнить его значениями 0 3 6 9 12 15 18 21
