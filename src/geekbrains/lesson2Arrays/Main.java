@@ -93,10 +93,10 @@ public class Main {
 
         for(int i = 0; i < SIZE_SQUARE_ARRAY; i++)    {
 
-            int j1 = i;                                         // уравнение прямой y = x
+//            int j1 = i;                                         // уравнение прямой y = x
             int j2 = -i + (SIZE_SQUARE_ARRAY - 1);              // уравнение прямой y = -x + b
 
-            arrayFor4thTask[i][j1] = 1;                         // заполнение диагоналей "1",
+            arrayFor4thTask[i][i] = 1;                          // заполнение диагоналей "1",
             arrayFor4thTask[i][j2] = 1;                         // при инициализации массив заполнен "0"
         }
 
